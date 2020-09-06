@@ -9,6 +9,12 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    @IBOutlet private weak var colorButton: UIButton! {
+        didSet {
+            colorButton.setTitle(R.string.localizable.hello(), for: .normal)
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

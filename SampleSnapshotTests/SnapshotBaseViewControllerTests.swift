@@ -1,5 +1,5 @@
 //
-//  SampleSnapshotTests.swift
+//  SnapshotBaseViewControllerTests.swift
 //  SampleSnapshotTests
 //
 //  Created by Jun Morita on 2020/09/05.
@@ -10,20 +10,19 @@ import XCTest
 @testable import SampleSnapshot
 import FBSnapshotTestCase
 
-class SampleSnapshotTests: FBSnapshotTestCase {
-
+class SnapshotBaseViewControllerTests: FBSnapshotTestCase {
+    
     override func setUp() {
         super.setUp()
         self.recordMode = true
-        folderName = "SampleSnapshotTests"
+        folderName = String(describing: type(of: self)).replacingOccurrences(of: "Tests", with: "")
+        
         // NOTE: deviceオプションは"iPhone"としか取れなかったので却下
-        fileNameOptions = [.screenSize]
+        fileNameOptions = [.screenSize, .screenScale]
     }
-    
-    func testSimpleView() {
-        let sb = UIStoryboard.init(name: "Main", bundle: nil)
-        let vc = sb.instantiateInitialViewController() as! ViewController
-        FBSnapshotVerifyView(vc.view)
+
+    func snapshot(with view: UIView) {
+        FBSnapshotVerifyView(view)
     }
 
 }

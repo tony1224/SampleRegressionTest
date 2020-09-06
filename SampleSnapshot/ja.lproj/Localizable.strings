@@ -1,0 +1,9 @@
+/* 
+  Localizable.strings
+  SampleSnapshot
+
+  Created by Jun Morita on 2020/09/06.
+  Copyright © 2020 Jun Morita. All rights reserved.
+*/
+
+"hello" = "こんにちは。";
